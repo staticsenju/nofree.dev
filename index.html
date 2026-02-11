@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Free - Please don't ask for free work</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', Trebuchet, Verdana, sans-serif;
+            color: #666666;
+            background: #ffffff;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-outer {
+            max-width: 960px;
+            width: 100%;
+            padding: 10px 40px;
+            box-sizing: border-box;
+        }
+
+        header {
+            padding: 22px 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        h1.title {
+            font-size: 40px;
+            color: #000000;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .description {
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .date-header {
+            margin: 35px 0 15px 0;
+            font: normal bold 11px Arial, sans-serif;
+        }
+
+        .date-header span {
+            background-color: #bbbbbb;
+            color: #ffffff;
+            padding: 0.4em;
+            letter-spacing: 3px;
+        }
+
+        .post-body {
+            font-size: 110%;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        h3.post-title {
+            font-size: 22px;
+            color: #2288bb;
+            margin: 0.75em 0;
+            font-weight: normal;
+        }
+
+        pre.chat-log {
+            background-color: #e0eaf4;
+            border: 1px solid #a9cef1;
+            color: #006000;
+            padding: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: monospace;
+            line-height: 1.5;
+        }
+
+        .api-section {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            margin-right: 5px;
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #666;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            background-color: #eee;
+        }
+
+        .tab-btn.active {
+            background: #2288bb;
+            color: white;
+            border-color: #2288bb;
+        }
+
+        .route-block {
+            margin-bottom: 30px;
+        }
+
+        .route-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        pre.code-display {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            white-space: pre;
+            font-size: 13px;
+            border-left: 5px solid #2288bb;
+        }
+
+        .footer-outer {
+            margin-top: 40px;
+            border-top: 1px dashed #bbbbbb;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 90%;
+        }
+
+        a { color: #2288bb; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .credit { font-size: 12px; color: #999; margin-top: 10px; }
+
+        @media (max-width: 600px) {
+            .content-outer { padding: 10px 20px; }
+            h1.title { font-size: 32px; }
+            .description { font-size: 16px; }
+            .post-body { font-size: 100%; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-outer">
+        <header>
+            <h1 class="title">NoFree.Dev</h1>
+            <p class="description">Please don't ask for "quick favors."</p>
+        </header>
+
+        <div class="date-header">
+            <span>2026</span>
+        </div>
+
+        <div class="post-body">
+            <h3 class="post-title">Developing is my passion, but this isn't <strong>"ask and you shall receive."</strong></h3>
+
+            <p>I love what I do, but it is also how I pay my bills. When you ask for a "quick fix" or a "small app" for free, you're asking someone to do their job for you, FOR FREE.</p>
+
+            <pre class="chat-log">
+12:32 you: Hey, quick question...
+12:32 dev: What's up?
+12:34 you: Can you just build this feature real quick? It's simple.
+12:35 dev: ...</pre>
+
+            <p>Try this approach instead:</p>
+
+            <pre class="chat-log">
+12:32 you: Hey, are you taking freelance work right now?
+12:33 dev: I am! Here are my rates.</pre>
+
+            <p><strong>Why this matters:</strong><br>
+                It is rarely "just 5 minutes." Context switching, environment setup, and testing all take time. If the project is worth building, it's worth paying for.</p>
+
+            <p>Respect my time, and I will respect your project.</p>
+        </div>
+
+        <div class="api-section">
+            <h3 class="post-title">For Developers: The API</h3>
+            <p>Automate your refusals. Integrate <code>api.nofree.dev</code> into your Slack bot, CI/CD pipeline, or terminal.</p>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="setOS('linux', this)">Mac / Linux</button>
+                <button class="tab-btn" onclick="setOS('powershell', this)">PowerShell</button>
+                <button class="tab-btn" onclick="setOS('cmd', this)">Windows CMD</button>
+            </div>
+
+            <div class="route-block">
+                <div class="route-title">1. Get a Refusal</div>
+                <pre class="code-display" id="code-get"></pre>
+            </div>
+
+            <div class="route-block">
+                <div class="route-title">2. Submit Your Own</div>
+                <pre class="code-display" id="code-submit"></pre>
+            </div>
+
+            <div class="route-block">
+                <div class="route-title">3. Upvote (Requires ID)</div>
+                <pre class="code-display" id="code-vote"></pre>
+            </div>
+        </div>
+
+        <footer class="footer-outer">
+            Short link: <a href="https://nofree.dev">nofree.dev</a>
+            <div class="credit">
+                Styled after <a href="https://nohello.com" target="_blank">nohello.com</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const snippets = {
+            linux: {
+                get: `curl "https://api.nofree.dev/?intensity=10"`,
+                submit: `curl -X POST https://api.nofree.dev/submit \\
+  -H "Content-Type: application/json" \\
+  -d '{"content": "I do not code for exposure.", "intensity": 5}'`,
+                vote: `curl -X POST https://api.nofree.dev/vote \\
+  -H "Content-Type: application/json" \\
+  -d '{"id": 1}'`
+            },
+            powershell: {
+                get: `Invoke-RestMethod -Uri "https://api.nofree.dev/?intensity=10"`,
+                submit: `$body = @{content="I do not code for exposure."; intensity=5} | ConvertTo-Json
+Invoke-RestMethod -Uri "https://api.nofree.dev/submit" -Method Post -Body $body -ContentType "application/json"`,
+                vote: `$vote = @{id=1} | ConvertTo-Json
+Invoke-RestMethod -Uri "https://api.nofree.dev/vote" -Method Post -Body $vote -ContentType "application/json"`
+            },
+            cmd: {
+                get: `curl "https://api.nofree.dev/?intensity=10"`,
+                submit: `curl -X POST https://api.nofree.dev/submit ^
+ -H "Content-Type: application/json" ^
+ -d "{\\"content\\": \\"I do not code for exposure.\\", \\"intensity\\": 5}"`,
+                vote: `curl -X POST https://api.nofree.dev/vote ^
+ -H "Content-Type: application/json" ^
+ -d "{\\"id\\": 1}"`
+            }
+        };
+
+        function setOS(osName, btnElement) {
+            document.getElementById('code-get').innerText = snippets[osName].get;
+            document.getElementById('code-submit').innerText = snippets[osName].submit;
+            document.getElementById('code-vote').innerText = snippets[osName].vote;
+            var buttons = document.getElementsByClassName("tab-btn");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            btnElement.classList.add("active");
+        }
+        window.onload = function() {
+            setOS('linux', document.querySelector('.tab-btn.active'));
+        };
+    </script>
+</body>
+</html>
