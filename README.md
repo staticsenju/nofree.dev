@@ -2,8 +2,8 @@
 
 A static site and public API for declining requests for free work. Inspired by nohello.com.
 
-**Live Site:** [https://nofree.dev](https://nofree.dev)
-**API Base URL:** [https://api.nofree.dev](https://www.google.com/search?q=https://api.nofree.dev)
+**Live Site:** https://nofree.dev
+**API Base URL:** https://api.nofree.dev
 
 ## Overview
 
@@ -14,24 +14,19 @@ NoFree.dev provides a standard link to set boundaries with clients or friends as
 The API allows you to fetch messages, submit new ones, and vote on existing entries.
 
 ### 1. Get a Message
-
 Fetch a random refusal message.
 
 **Endpoint:** `GET /`
 
 **Parameters:**
-
 * `intensity` (optional): Integer `1-10`.
-* `1-4`: Professional / Polite
-* `5-7`: Firm / Direct
-* `8-10`: Rude / Aggressive
-
-
+    * `1-4`: Professional / Polite
+    * `5-7`: Firm / Direct
+    * `8-10`: Rude / Aggressive
 
 **Example Request:**
-
 ```bash
-curl "https://api.nofree.dev/?intensity=10"
+curl "[https://api.nofree.dev/?intensity=10](https://api.nofree.dev/?intensity=10)"
 
 ```
 
@@ -96,20 +91,33 @@ npm install
 
 
 2. **Create Database**
+Run this command and **copy the `database_id**` it outputs:
 ```bash
 npx wrangler d1 create nofree-db
 
 ```
 
 
-3. **Apply Schema**
+3. **Configure Database**
+Open `wrangler.toml` and paste the ID you just copied into the `database_id` field:
+```toml
+[[d1_databases]]
+binding = "DB"
+database_name = "nofree-db"
+database_id = "PASTE_YOUR_ID_HERE"
+
+```
+
+
+4. **Apply Schema**
+Create the tables:
 ```bash
 npx wrangler d1 execute nofree-db --local --file=./schema.sql
 
 ```
 
 
-4. **Deploy**
+5. **Deploy**
 ```bash
 npx wrangler deploy
 
@@ -120,3 +128,7 @@ npx wrangler deploy
 ## License
 
 MIT License.
+
+```
+
+```
