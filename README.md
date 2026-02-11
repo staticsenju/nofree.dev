@@ -26,7 +26,7 @@ Fetch a random refusal message.
 
 **Example Request:**
 ```bash
-curl "[https://api.nofree.dev/?intensity=10](https://api.nofree.dev/?intensity=10)"
+curl "https://api.nofree.dev/?intensity=10)"
 
 ```
 
@@ -49,7 +49,7 @@ Fetch a refusal by its unique ID.
 
 **Example:**
 ```bash
-curl "[https://api.nofree.dev/1](https://api.nofree.dev/1)"
+curl "https://api.nofree.dev/1"
 ```
 
 ### 3. Submit a Message
