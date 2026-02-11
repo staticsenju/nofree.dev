@@ -26,7 +26,7 @@ Fetch a random refusal message.
 
 **Example Request:**
 ```bash
-curl "https://api.nofree.dev/?intensity=10)"
+curl "https://api.nofree.dev/?intensity=10"
 
 ```
 
