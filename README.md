@@ -42,7 +42,7 @@ curl "https://api.nofree.dev/?intensity=10"
 
 ```
 
-### 4. Get Specific Message
+### 2. Get Specific Message
 Fetch a refusal by its unique ID.
 
 **Endpoint:** `GET /{id}`
