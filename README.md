@@ -42,7 +42,17 @@ curl "[https://api.nofree.dev/?intensity=10](https://api.nofree.dev/?intensity=1
 
 ```
 
-### 2. Submit a Message
+### 4. Get Specific Message
+Fetch a refusal by its unique ID.
+
+**Endpoint:** `GET /{id}`
+
+**Example:**
+```bash
+curl "[https://api.nofree.dev/42](https://api.nofree.dev/42)"
+```
+
+### 3. Submit a Message
 
 Add a new refusal to the database.
 
@@ -58,7 +68,7 @@ Add a new refusal to the database.
 
 ```
 
-### 3. Upvote
+### 4. Upvote
 
 Upvote a message by ID.
 
