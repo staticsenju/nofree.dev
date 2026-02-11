@@ -1,90 +1,122 @@
 # NoFree.dev
+
 A static site and public API for declining requests for free work. Inspired by nohello.com.
 
-Live Site: https://nofree.dev API Base URL: https://api.nofree.dev
+**Live Site:** [https://nofree.dev](https://nofree.dev)
+**API Base URL:** [https://api.nofree.dev](https://www.google.com/search?q=https://api.nofree.dev)
 
-Overview
+## Overview
+
 NoFree.dev provides a standard link to set boundaries with clients or friends asking for unpaid labor. It includes a functional JSON API built on Cloudflare Workers that serves refusal messages with varying levels of intensity.
 
-API Documentation
+## API Documentation
+
 The API allows you to fetch messages, submit new ones, and vote on existing entries.
 
-1. Get a Message
+### 1. Get a Message
+
 Fetch a random refusal message.
 
-Endpoint: GET /
+**Endpoint:** `GET /`
 
-Parameters:
+**Parameters:**
 
-intensity (optional): Integer 1-10.
+* `intensity` (optional): Integer `1-10`.
+* `1-4`: Professional / Polite
+* `5-7`: Firm / Direct
+* `8-10`: Rude / Aggressive
 
-1-4: Professional / Polite
 
-5-7: Firm / Direct
 
-8-10: Rude / Aggressive
+**Example Request:**
 
-Example Request:
-
-Bash
+```bash
 curl "https://api.nofree.dev/?intensity=10"
-Example Response:
 
-JSON
+```
+
+**Example Response:**
+
+```json
 {
   "id": 42,
   "content": "Read my lips: Pay me.",
   "intensity": 10,
   "votes": 150
 }
-2. Submit a Message
+
+```
+
+### 2. Submit a Message
+
 Add a new refusal to the database.
 
-Endpoint: POST /submit
+**Endpoint:** `POST /submit`
 
-Body:
+**Body:**
 
-JSON
+```json
 {
   "content": "I do not code for exposure.",
   "intensity": 5
 }
-3. Upvote
+
+```
+
+### 3. Upvote
+
 Upvote a message by ID.
 
-Endpoint: POST /vote
+**Endpoint:** `POST /vote`
 
-Body:
+**Body:**
 
-JSON
+```json
 {
   "id": 42
 }
-Tech Stack
-Frontend: HTML5 / CSS3 (Hosted on GitHub Pages)
 
-Backend: Cloudflare Workers (Serverless JavaScript)
+```
 
-Database: Cloudflare D1 (SQLite)
+## Tech Stack
 
-Local Development
-To run the backend locally, you need npm and wrangler installed.
+* **Frontend:** HTML5 / CSS3 (Hosted on GitHub Pages)
+* **Backend:** Cloudflare Workers (Serverless JavaScript)
+* **Database:** Cloudflare D1 (SQLite)
 
-Install Dependencies
+## Local Development
 
-Bash
+To run the backend locally, you need `npm` and `wrangler` installed.
+
+1. **Install Dependencies**
+```bash
 npm install
-Create Database
 
-Bash
+```
+
+
+2. **Create Database**
+```bash
 npx wrangler d1 create nofree-db
-Apply Schema
 
-Bash
+```
+
+
+3. **Apply Schema**
+```bash
 npx wrangler d1 execute nofree-db --local --file=./schema.sql
-Deploy
 
-Bash
+```
+
+
+4. **Deploy**
+```bash
 npx wrangler deploy
-License
+
+```
+
+
+
+## License
+
 MIT License.
