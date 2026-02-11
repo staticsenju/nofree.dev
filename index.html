@@ -226,48 +226,54 @@
         </footer>
     </div>
 
-    <script>
-        const snippets = {
-            linux: {
-                get: `curl "https://api.nofree.dev/?intensity=10"`,
-                submit: `curl -X POST https://api.nofree.dev/submit \\
+<script>
+    const snippets = {
+        linux: {
+            get: `curl "https://api.nofree.dev/?intensity=10"`,
+            getById: `curl "https://api.nofree.dev/42"`,
+            submit: `curl -X POST https://api.nofree.dev/submit \\
   -H "Content-Type: application/json" \\
   -d '{"content": "I do not code for exposure.", "intensity": 5}'`,
-                vote: `curl -X POST https://api.nofree.dev/vote \\
+            vote: `curl -X POST https://api.nofree.dev/vote \\
   -H "Content-Type: application/json" \\
   -d '{"id": 1}'`
-            },
-            powershell: {
-                get: `Invoke-RestMethod -Uri "https://api.nofree.dev/?intensity=10"`,
-                submit: `$body = @{content="I do not code for exposure."; intensity=5} | ConvertTo-Json
+        },
+        powershell: {
+            get: `Invoke-RestMethod -Uri "https://api.nofree.dev/?intensity=10"`,
+            getById: `Invoke-RestMethod -Uri "https://api.nofree.dev/42"`,
+            submit: `$body = @{content="I do not code for exposure."; intensity=5} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://api.nofree.dev/submit" -Method Post -Body $body -ContentType "application/json"`,
-                vote: `$vote = @{id=1} | ConvertTo-Json
+            vote: `$vote = @{id=1} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://api.nofree.dev/vote" -Method Post -Body $vote -ContentType "application/json"`
-            },
-            cmd: {
-                get: `curl "https://api.nofree.dev/?intensity=10"`,
-                submit: `curl -X POST https://api.nofree.dev/submit ^
+        },
+        cmd: {
+            get: `curl "https://api.nofree.dev/?intensity=10"`,
+            getById: `curl "https://api.nofree.dev/42"`,
+            submit: `curl -X POST https://api.nofree.dev/submit ^
  -H "Content-Type: application/json" ^
  -d "{\\"content\\": \\"I do not code for exposure.\\", \\"intensity\\": 5}"`,
-                vote: `curl -X POST https://api.nofree.dev/vote ^
+            vote: `curl -X POST https://api.nofree.dev/vote ^
  -H "Content-Type: application/json" ^
  -d "{\\"id\\": 1}"`
-            }
-        };
-
-        function setOS(osName, btnElement) {
-            document.getElementById('code-get').innerText = snippets[osName].get;
-            document.getElementById('code-submit').innerText = snippets[osName].submit;
-            document.getElementById('code-vote').innerText = snippets[osName].vote;
-            var buttons = document.getElementsByClassName("tab-btn");
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            btnElement.classList.add("active");
         }
-        window.onload = function() {
-            setOS('linux', document.querySelector('.tab-btn.active'));
-        };
-    </script>
+    };
+
+    function setOS(osName, btnElement) {
+        document.getElementById('code-get').innerText = snippets[osName].get;
+        document.getElementById('code-get-id').innerText = snippets[osName].getById;
+        document.getElementById('code-submit').innerText = snippets[osName].submit;
+        document.getElementById('code-vote').innerText = snippets[osName].vote;
+
+        const buttons = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        btnElement.classList.add("active");
+    }
+
+    window.onload = function() {
+        setOS('linux', document.querySelector('.tab-btn.active'));
+    };
+</script>
 </body>
 </html>
