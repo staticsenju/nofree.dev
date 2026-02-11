@@ -49,7 +49,7 @@ Fetch a refusal by its unique ID.
 
 **Example:**
 ```bash
-curl "[https://api.nofree.dev/42](https://api.nofree.dev/42)"
+curl "[https://api.nofree.dev/1](https://api.nofree.dev/1)"
 ```
 
 ### 3. Submit a Message
